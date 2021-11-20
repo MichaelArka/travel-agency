@@ -45,7 +45,7 @@ export const getTripsForCountry = ({trips}, countryCode) => {
 
 /*
 // action name creator
-const reducerName = 'trips';
+// const reducerName = 'trips';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
