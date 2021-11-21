@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {BrowserRouter, Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {AnimatedSwitch} from 'react-router-transition';
-import styles from './styles/App.scss';
+import styles from '../src/styles/App.module.scss';
 
 import MainLayout from './components/layout/MainLayout/MainLayout';
 
@@ -41,20 +41,20 @@ class App extends React.Component {
 
   render(){
 
-    const slide = {
-      enter: {
-        opacity: 0,
-        y: 200,
-      },
-      leave: {
-        opacity: 0,
-        y: 200,
-      },
-      active: {
-        opacity: 1,
-        y: 0,
-      },
-    };
+    // const slide = {
+    //   enter: {
+    //     opacity: 0,
+    //     top: 200,
+    //   },
+    //   leave: {
+    //     opacity: 0,
+    //     top: 0,
+    //   },
+    //   active: {
+    //     opacity: 1,
+    //     top: 0,
+    //   },
+    // };
       
     // TO DO <-- transition not done!
 
@@ -62,9 +62,9 @@ class App extends React.Component {
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-          atEnter={slide.enter}
-          atLeave={slide.leave}
-          atActive={slide.active}
+          atEnter={{opacity: 0, top: 200}}
+          atLeave={{opacity: 0, top: 0}}
+          atActive={{opacity: 1, top: 0}}
           className={styles.switchWrapper}
           >
             {/* TODO - add more routes for other views */}
