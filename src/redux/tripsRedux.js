@@ -26,6 +26,24 @@ export const getFilteredTrips = ({trips, filters}) => {
   });
   // TODO - sort by cost descending (most expensive goes first)
 
+  output = output.sort((tripOne, tripTwo) => {
+    const [costOne, costTwo] = [tripOne, tripTwo].map((trip) =>
+    Number(trip.cost.replace(/[^0-9.]+/g, ''))
+    );
+
+    if (costOne > costTwo) {
+      return 1;
+    };
+    if (costOne < costTwo) {
+      return -1;
+
+    } else {
+      return 0;
+    };
+    
+  });
+
+  // var.replace(/[^0-9]+/g, '');  
   return output;
 };
 
