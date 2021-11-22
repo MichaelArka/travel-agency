@@ -52,7 +52,7 @@ export const getTripById = ({trips}, tripId) => {
 
   // [DONE] TODO - filter trips by tripId
 
-  console.log('filtering trips by tripId:', tripId, filtered);
+  // console.log('filtering trips by tripId:', tripId, filtered);
   return filtered.length ? filtered.find(trip => trip.id === tripId) : {error: true};
 };
 
