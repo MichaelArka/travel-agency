@@ -24,7 +24,7 @@ export const getFilteredTrips = ({trips, filters}) => {
     const conditionTwo = filters.tags;
     return conditionTwo.every(tag => trip.tags.includes(tag));
   });
-  // TODO - sort by cost descending (most expensive goes first)
+  // [DONE] TODO - sort by cost descending (most expensive goes first)
 
   output = output.sort((tripOne, tripTwo) => {
     const [costOne, costTwo] = [tripOne, tripTwo].map((trip) =>
@@ -32,10 +32,10 @@ export const getFilteredTrips = ({trips, filters}) => {
     );
 
     if (costOne > costTwo) {
-      return 1;
+      return -1;
     };
     if (costOne < costTwo) {
-      return -1;
+      return 1;
 
     } else {
       return 0;
