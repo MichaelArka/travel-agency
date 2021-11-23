@@ -6,7 +6,7 @@ const OrderForm = (props) => (
   
     <Row>
       <Col xs={12}>
-        <OrderSummary options={props.options}/>
+        <OrderSummary options={props.options} tripCost={props.tripCost} />
       </Col>
     </Row>
 );
