@@ -17,10 +17,4 @@ const OrderOptionDropdown = ({values, required, currentValue, setOptionValue}) =
   </select>
 );
 
-// const OrderOptionDropdown = () => (
-//   <div>
-//     <h1>OrderOptionDropdown</h1>
-//   </div>
-// );
-
 export default OrderOptionDropdown;
