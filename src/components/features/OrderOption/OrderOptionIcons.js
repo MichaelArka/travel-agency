@@ -9,6 +9,9 @@ const OrderOptionIcons = ({required, setOptionValue, values}) => (
         <Icon name="times-circle" />none
       </div>
     )}
+    {values.map(value => (
+      <div key={value.id} value={value.id}>{value.name}</div>
+    ))}
   </div>
 );
 
