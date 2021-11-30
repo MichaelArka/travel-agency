@@ -11,9 +11,7 @@ const OrderForm = (props) => (
     {pricing.map((pricingOption) => (
       <Col md={4} key={pricingOption.id}>
         <OrderOption 
-        type = {pricingOption.type} 
-        name = {pricingOption.name} 
-        values = {pricingOption.values} 
+        {...pricingOption}
         setOrderOption={setOrderOption}/>
       </Col>
     ))}
