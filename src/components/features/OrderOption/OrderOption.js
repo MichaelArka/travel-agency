@@ -4,7 +4,9 @@ import OrderOptionCheckboxes from './OrderOptionCheckboxes';
 import OrderOptionDropdown from './OrderOptionDropdown';
 import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionNumber from './OrderOptionNumber';
+import OrderOptionText from './OrderOptionText';
 import { setOrderOption } from '../../../redux/orderRedux';
+import OrderOptionDate from './OrderOptionDate';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
@@ -12,7 +14,8 @@ const optionTypes = {
   checkboxes: OrderOptionCheckboxes,
   number: OrderOptionNumber,
   setOrderOption: setOrderOption,
-  // id: id,
+  text: OrderOptionText,
+  date: OrderOptionDate,
 };
 
 const OrderOption = ({name, props, type, id, setOrderOption, ...otherProps}) => {
