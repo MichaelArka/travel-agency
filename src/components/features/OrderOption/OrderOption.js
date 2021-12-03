@@ -36,11 +36,4 @@ const OrderOption = ({name, props, type, id, setOrderOption, ...otherProps}) => 
   }
 };
 
-// const OrderOption = () => (
-
-//   <div className={styles.component}>
-//     <h3 className={styles.title}>Car Rental</h3>
-//   </div>
-// );
-
 export default OrderOption;
