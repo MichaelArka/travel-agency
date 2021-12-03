@@ -3,7 +3,7 @@ import React from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import pricing from '../../../data/pricing.json';
 import OrderOption from './OrderOption';
-import { setOrderOption } from '../../../redux/orderRedux';
+// import { setOrderOption } from '../../../redux/orderRedux';
 
 const OrderForm = (props) => (
   
@@ -12,7 +12,8 @@ const OrderForm = (props) => (
       <Col md={4} key={pricingOption.id}>
         <OrderOption 
         {...pricingOption}
-        setOrderOption={setOrderOption}/>
+        setOrderOption={props.setOrderOption}
+        currentValue={props.options[pricingOption.id]}/>
       </Col>
     ))}
       <Col md={4}>

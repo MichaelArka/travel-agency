@@ -1,6 +1,17 @@
 import React from 'react';
 import styles from './OrderOption.module.scss';
 
+const newValueSet = (currentValue, id, checked) => {
+  if(checked){
+    return [
+      ...currentValue,
+      id,
+    ];
+  } else {
+    return currentValue.filter(value => value !== id);
+  }
+};
+
 const OrderOptionCheckboxes = ({values, setOptionValue, currentValue}) => (
   <div className={styles.checkboxes}>
     {values.map(value => (
@@ -9,9 +20,9 @@ const OrderOptionCheckboxes = ({values, setOptionValue, currentValue}) => (
         <input 
           type="checkbox" 
           value={value.id}
-          onChange={event => setOptionValue(event.currentTarget.value)}
-          // checked={currentValue.includes(value.id)}
-
+          checked={currentValue.includes(value.id)}
+          // onChange={event => setOptionValue(event.currentTarget.value)}
+          onChange={event => setOptionValue(newValueSet(currentValue, value.id, event.currentTarget.checked))}
           >
 
           </input>
