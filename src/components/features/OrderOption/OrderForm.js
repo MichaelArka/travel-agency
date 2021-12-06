@@ -3,7 +3,6 @@ import React from 'react';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import pricing from '../../../data/pricing.json';
 import OrderOption from './OrderOption';
-// import { setOrderOption } from '../../../redux/orderRedux';
 
 const OrderForm = (props) => (
   
