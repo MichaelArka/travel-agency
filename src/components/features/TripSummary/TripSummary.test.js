@@ -51,8 +51,20 @@ describe('Component TripSummary', () => {
   });
 
   it('should not render tags if tags not exist', () => {
-    const component = shallow(<TripSummary tags={['']} />);
+    const component = shallow(<TripSummary tags={[]} />);
 
-    expect(component.find('.tag').exists()).toEqual(true);
+    expect(component.find('.tag').exists()).toEqual(false);
+  });
+
+  it('should throw error if props are missing', () => {
+    const id = 'id'; 
+    const image = 'image.jpg';
+    const name = 'name';
+    const cost = '$100';
+    const days = 7;
+    const requiredProps = {id, image, name, cost, days};
+    const component = shallow(<TripSummary missingProps={requiredProps} tags={[]} />);
+
+    expect(component).toThrow();
   });
 });
