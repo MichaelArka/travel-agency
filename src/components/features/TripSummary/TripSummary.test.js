@@ -5,7 +5,8 @@ import TripSummary from './TripSummary';
 describe('Component TripSummary', () => {
   it('should render correct address', () => {
     const expectedAddress = '/trip/abc';
-    const component = shallow(<TripSummary id={'abc'} tags={[]} />)
+    const requiredName = 'name';
+    const component = shallow(<TripSummary id={'abc'} name={requiredName} tags={[]} />)
     expect(component.find('Link').prop('to')).toEqual(expectedAddress);
     // console.log(component.debug());
   });
@@ -16,7 +17,6 @@ describe('Component TripSummary', () => {
     const component = shallow(<TripSummary image={expectedSrc} name={expectedAlt} tags={[]} />);
     expect(component.find('img').prop('src')).toEqual(expectedSrc);
     expect(component.find('img').prop('alt')).toEqual(expectedAlt);
-    // alt - changed on name <- then works
   });
 
   it('render props - name, cost, days', () => {
@@ -42,7 +42,8 @@ describe('Component TripSummary', () => {
   });
 
   it('render tags in array', () => {
-    const component = shallow(<TripSummary tags={['one', 'two', 'three']} />);
+    const requiredName = 'duck'
+    const component = shallow(<TripSummary name={requiredName} tags={['one', 'two', 'three']} />);
 
     // expect(component.find('.tag').at(0).text()).toEqual('one' || 'two' || 'three');
     expect(component.find('.tag').at(0).text()).toEqual('one');
@@ -51,7 +52,8 @@ describe('Component TripSummary', () => {
   });
 
   it('should not render tags if tags not exist', () => {
-    const component = shallow(<TripSummary tags={[]} />);
+    const requiredName = 'duck'
+    const component = shallow(<TripSummary name={requiredName} tags={[]} />);
 
     expect(component.find('.tag').exists()).toEqual(false);
   });
