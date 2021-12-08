@@ -7,6 +7,7 @@ import OrderOptionNumber from './OrderOptionNumber';
 import OrderOptionText from './OrderOptionText';
 import { setOrderOption } from '../../../redux/orderRedux';
 import OrderOptionDate from './OrderOptionDate';
+import PropTypes from 'prop-types';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
@@ -34,6 +35,11 @@ const OrderOption = ({name, props, type, id, setOrderOption, ...otherProps}) => 
       </div>
     );
   }
+
+};
+
+OrderOption.propTypes = {
+  name: PropTypes.string,
 };
 
 export default OrderOption;

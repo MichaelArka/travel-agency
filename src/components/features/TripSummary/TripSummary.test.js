@@ -56,15 +56,7 @@ describe('Component TripSummary', () => {
     expect(component.find('.tag').exists()).toEqual(false);
   });
 
-  it('should throw error if props are missing', () => {
-    const id = 'id'; 
-    const image = 'image.jpg';
-    const name = 'name';
-    const cost = '$100';
-    const days = 7;
-    const requiredProps = {id, image, name, cost, days};
-    const component = shallow(<TripSummary missingProps={requiredProps} tags={[]} />);
-
-    expect(component).toThrow();
+  it('should throw error without required props', () => {
+    expect(() => shallow(<TripSummary />)).toThrow();
   });
 });
