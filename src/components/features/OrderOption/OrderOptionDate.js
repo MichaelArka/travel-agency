@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import PropTypes from 'prop-types';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -11,6 +12,10 @@ const OrderOptionDate = () => {
   return (
     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
   );
+};
+
+OrderOptionDate.propType = {
+  date: PropTypes.string
 };
 
 export default OrderOptionDate;
