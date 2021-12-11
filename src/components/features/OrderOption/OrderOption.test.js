@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import OrderOption from './OrderOption';
-import OrderOptionDate from './OrderOptionDate';
+import DatePicker from "react-datepicker";
 
 describe('Component OrderOption', () => {
   it('should render without crashing', () => {
@@ -192,7 +192,13 @@ describe('Component OrderOption', () => {
         }
 
         case 'date': {
-
+          it('contains DatePicker', () => {
+            const component = renderedSubcomponent.find(DatePicker);
+            expect(component.length).toBe(1);
+          });
+          it('should run setOrderOption function on change....', () => {
+            renderedSubcomponent.find(DatePicker).simulate('change', testValue);
+          });
           break;
         }
 
