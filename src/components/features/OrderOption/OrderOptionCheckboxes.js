@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './OrderOption.module.scss';
 import { formatPrice } from '../../../utils/formatPrice';
+import PropTypes from 'prop-types';
 
 const newValueSet = (currentValue, id, checked) => {
   if(checked){
@@ -30,5 +31,11 @@ const OrderOptionCheckboxes = ({values, setOptionValue, currentValue}) => (
     ))}
   </div>
 );
+
+OrderOptionCheckboxes.propTypes = {
+  values: PropTypes.array,
+  setOptionValue: PropTypes.func,
+  currentValue: PropTypes.array,
+};
 
 export default OrderOptionCheckboxes;

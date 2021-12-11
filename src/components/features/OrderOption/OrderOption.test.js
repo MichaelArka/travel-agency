@@ -145,8 +145,9 @@ describe('Component OrderOption', () => {
             expect(component.length).toBe(1);
           });
           // skip
-          xit('should run setOrderOption function on change.', () => { 
-            renderedSubcomponent.find('.checkboxes').at(1).simulate('change', {currentTarget: {checked: true}});
+          it('should run setOrderOption function on change.', () => { 
+            renderedSubcomponent.find('.checkboxes').simulate('change', {currentTarget: {checked: true}});
+            // console.log(component.debug());
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
           });
@@ -161,12 +162,9 @@ describe('Component OrderOption', () => {
             const input = renderedSubcomponent.find('input');
             console.log(component.debug());
             expect(input.prop('type')).toBe('number');
-            // expect(input.prop('value')).toBe(mockProps.currentValue);
+            expect(input.prop('value')).toBe(mockPropsForType.number.currentValue);
             expect(input.prop('min')).toBe(mockProps.limits.min);
             expect(input.prop('max')).toBe(mockProps.limits.max);
-
-            // expect(input.at(0).prop('value')).toBe(mockProps.values['aaa']);
-            // expect(input.at(1).prop('value')).toBe(mockProps.values[1].id);
           });
 
           it('should run setOrderOption function on change..', () => {
@@ -183,8 +181,8 @@ describe('Component OrderOption', () => {
             expect(component.length).toBe(1);
           });
 
-          xit('should run setOrderOption function on change...', () => {
-            renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValue}});
+          it('should run setOrderOption function on change...', () => {
+            renderedSubcomponent.find('input').simulate('change', {currentTarget: {value: testValue}});
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
           });
