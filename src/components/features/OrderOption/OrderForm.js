@@ -7,6 +7,7 @@ import Button from '../../common/Button/Button';
 import { formatPrice } from '../../../utils/formatPrice';
 import { calculateTotal } from '../../../utils/calculateTotal';
 import settings from '../../../data/settings';
+import PropTypes from 'prop-types';
 
 const sendOrder = (options, tripCost) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
@@ -52,5 +53,11 @@ const OrderForm = (props, options, tripCost) => (
       </Col>
   </Row>
 );
+
+OrderForm.propTypes = {
+  props: PropTypes.string,
+  options: PropTypes.object,
+  tripCost: PropTypes.string,
+};
 
 export default OrderForm;

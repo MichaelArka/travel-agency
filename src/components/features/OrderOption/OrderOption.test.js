@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {render, shallow} from 'enzyme';
 import OrderOption from './OrderOption';
 import DatePicker from "react-datepicker";
 
@@ -131,7 +131,9 @@ describe('Component OrderOption', () => {
             expect(component.length).toBe(2);
           });
           it('should run setOrderOption function on click', () => {
-            renderedSubcomponent.find('div .icon').at(1).simulate('click');
+            
+            renderedSubcomponent.find('.icon').last().simulate('click');
+            // renderedSubcomponent.find('div .icon').at(1).simulate('click');
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
           });
@@ -140,27 +142,24 @@ describe('Component OrderOption', () => {
 
         case 'checkboxes': {
           it('contains run setOrderOption function on change when value is checked: true', () => {
-            const component = renderedSubcomponent.find('.checkboxes');
+            const component = renderedSubcomponent.find('input');
             // console.log(component.debug());
-            expect(component.length).toBe(1);
+            expect(component.length).toBe(2);
           });
           // skip
           it('should run setOrderOption function on change.', () => { 
-            renderedSubcomponent.find('.checkboxes').simulate('change', {currentTarget: {checked: true}});
+            renderedSubcomponent.find('input').at(1).simulate('change', {currentTarget: {checked: true}});
             // console.log(component.debug());
             expect(mockSetOrderOption).toBeCalledTimes(1);
-            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: [mockProps.currentValue, testValue] });
           });
           break;
         }
 
         case 'number': {
           it('contains input and options', () => {
-            const component = renderedSubcomponent.find('.inputSmall');
-            expect(component.length).toBe(1);
           
             const input = renderedSubcomponent.find('input');
-            console.log(component.debug());
             expect(input.prop('type')).toBe('number');
             expect(input.prop('value')).toBe(mockPropsForType.number.currentValue);
             expect(input.prop('min')).toBe(mockProps.limits.min);
