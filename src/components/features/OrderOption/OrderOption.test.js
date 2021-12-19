@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, shallow} from 'enzyme';
+import {shallow} from 'enzyme';
 import OrderOption from './OrderOption';
 import DatePicker from "react-datepicker";
 
@@ -195,6 +195,8 @@ describe('Component OrderOption', () => {
           });
           it('should run setOrderOption function on change....', () => {
             renderedSubcomponent.find(DatePicker).simulate('change', testValue);
+            expect(mockSetOrderOption).toBeCalledTimes(1);
+            expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue })
           });
           break;
         }
