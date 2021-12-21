@@ -1,70 +1,26 @@
-// import React from 'react';
-// import styles from './OrderOption.module.scss';
-// import PropTypes from 'prop-types';
-// import { useForm } from 'react-hook-form';
-
-// const OrderOptionText = ({setOptionValue}) => (
-  
-//   <div className={styles.component}>
-//     <input 
-//       placeholder='enter text'
-//       type="text"
-//       className={styles.input}
-//       onChange={(event) => setOptionValue(event.currentTarget.value)}
-//       >
-//       </input>
-//   </div>
-// );
-
-// OrderOptionText.propTypes = {
-//   setOptionValue: PropTypes.func,
-// };
-
-// export default OrderOptionText;
-
 import React from 'react';
 import styles from './OrderOption.module.scss';
 import PropTypes from 'prop-types';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { render } from 'enzyme';
+import { input } from 'react-inputs-validation';
+import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 
-const schema = yup.object().shape({
-  username: yup.string().required(),
-  phone: yup.string().required(),
-});
-
-export default function OrderOptionText({setOptionValue}) {
-  const { register, handleSubmit, errors } = useForm({
-    resolver:yupResolver(schema),
-  });
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
-
-  return (
-    <div className='App'>
-      
-  <form onSubmit={handleSubmit(onSubmit)}>
+const OrderOptionText = ({setOptionValue, name}) => (
   
-    return(
-      <div className={styles.component}>
-      <input  
-        placeholder='enter text'
-        type="text"
-        // ref={register}
-        className={styles.input}
-        onChange={(event) => setOptionValue(event.currentTarget.value)}
-        >
-        </input>
-    </div>
-    
-    )
-</form>
-</div>)};
-      
+  <div className={styles.component}>
+    <input 
+      placeholder = {<h3 className={styles.title}>{name}</h3>} // <-- zostawiam bo smiesznie wygląda, nie potrafię zrobić tak by placeholder wyświetlał w zaleznosci od inputu (phone lub YourName)
+      type="text"
+      required="" // <-- required nie działa, próbowałem z @hookform/resolvers i Yup, ale to zbyt skomplikowane :D
+      className={styles.input}
+      onChange={(event) => setOptionValue(event.currentTarget.value)}
+      >
+      </input>
+  </div>
+);
+
 OrderOptionText.propTypes = {
   setOptionValue: PropTypes.func,
+  name: PropTypes.string,
 };
 
-// export default OrderOptionText;
+export default OrderOptionText;
