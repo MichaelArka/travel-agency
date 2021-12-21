@@ -62,6 +62,7 @@ OrderForm.propTypes = {
   props: PropTypes.string,
   options: PropTypes.object,
   tripCost: PropTypes.node,
+  countryCode: PropTypes.string,
 };
 
 export default OrderForm;
