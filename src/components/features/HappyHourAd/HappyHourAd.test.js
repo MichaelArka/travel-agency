@@ -4,7 +4,7 @@ import HappyHourAd from './HappyHourAd';
 
 const select = {
   title: '.title',
-  promoDescription: 'promoDescription',
+  promoDescription: '.promoDescription',
 };
 
 const mockProps = {
@@ -16,7 +16,7 @@ describe('Component HappyHourAd', () => {
   it('should render component HappyHourAd', () => {
     const component = shallow(<HappyHourAd />);
     expect(component).toBeTruthy();
-    
+
     expect(component.exists(select.title)).toEqual(true);
     expect(component.exists(select.promoDescription)).toEqual(true);
   });
@@ -29,7 +29,17 @@ describe('Component HappyHourAd', () => {
 
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
-  /* ... */
+  constructor(...args) {
+    if(args.length){
+      super(...args);
+    } else {
+      super(customDate);
+    }
+    return this;
+  }
+  static now(){
+    return (new Date(customDate)).getTime();
+  }
 };
 
 const checkDescriptionAtTime = (time, expectedDescription) => {

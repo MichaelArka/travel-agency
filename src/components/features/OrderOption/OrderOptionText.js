@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 const OrderOptionText = ({setOptionValue}) => (
   <div className={styles.component}>
     <input 
+      placeholder='enter text'
+      formatErrorTxt 
       type="text"
       className={styles.input}
       onChange={(event) => setOptionValue(event.currentTarget.value)}
