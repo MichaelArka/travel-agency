@@ -1,3 +1,47 @@
 {
-  "orders": []
+  "orders": [
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$139,399",
+      "id": 1
+    },
+    {
+      "car-rental": "luxury",
+      "accommodation": "house",
+      "features": [
+        "security",
+        "pool"
+      ],
+      "adults": 1,
+      "children": 0,
+      "name": "asasdas",
+      "contact": "asdasdas",
+      "start-date": "",
+      "totalCost": "$143,699",
+      "id": 2
+    },
+    {
+      "car-rental": "suv",
+      "accommodation": "suite",
+      "features": [
+        "pool",
+        "kitchen",
+        "security"
+      ],
+      "adults": 2,
+      "children": 0,
+      "name": "asdasdasdds",
+      "contact": "dsadsadsadsadsa",
+      "start-date": "",
+      "totalCost": "$287,197",
+      "id": 3
+    }
+  ]
 }
