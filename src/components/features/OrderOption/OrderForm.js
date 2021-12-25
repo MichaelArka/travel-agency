@@ -31,13 +31,19 @@ const sendOrder = (options, tripCost, tripName, tripId, countryCode) => {
     body: JSON.stringify(payload),
   };
 
+  if (payload.name === '' || payload.contact === '') {
+    alert('Name and contact must be filled!');
+
+  } else {
+
   fetch(url, fetchOptions)
     .then(function(response){
+      alert('Order Sent!');
       return response.json();
     }).then(function(parsedResponse){
       console.log('parsedResponse', parsedResponse);
     });
-};
+}};
 
 const OrderForm = (props) => (
   
