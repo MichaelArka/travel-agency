@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './OrderOption.module.scss';
 import PropTypes from 'prop-types';
-import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 
 const OrderOptionText = ({setOptionValue}) => (
   

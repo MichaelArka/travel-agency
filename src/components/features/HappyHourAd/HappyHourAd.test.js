@@ -5,6 +5,7 @@ import HappyHourAd from './HappyHourAd';
 const select = {
   title: '.title',
   promoDescription: '.promoDescription',
+  test: '.test',
 };
 
 const mockProps = {
@@ -91,14 +92,34 @@ describe('Component HappyHourAd with mocked Date and delay', () => {
   checkDescriptionAfterTime('13:00:00', 60 * 60, 23 * 60 * 60 + '');
 });
 
-describe('Component HappyHourAd with promoDescription text', () => {
-  checkDescriptionAtTime('11:59:59', mockProps.promoDescription);
-  checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
-  checkDescriptionAtTime('13:00:00', mockProps.promoDescription);
-});
+// describe('Component HappyHourAd with promoDescription text', () => {
+//   checkDescriptionAtTime('11:59:59', mockProps.promoDescription);
+//   checkDescriptionAtTime('12:00:00', mockProps.promoDescription);
+//   checkDescriptionAtTime('13:00:00', mockProps.promoDescription);
+// });
 
 describe('Component HappyHourAd with promotion text', () => {
   checkDescriptionAfterTime('11:57:58', 2, '122');
   checkDescriptionAfterTime('11:59:58', 2, '2');
   checkDescriptionAfterTime('13:00:00', 60 * 60, 23 * 60 * 60 + '');
+});
+
+// Example
+const checkTestAtTime = (time, expectedDescription) => {
+  it(`should show correct at ${time}`, () => {
+    global.Date = mockDate(`2019-05-14T${time}.135Z`);
+
+    const component = shallow(<HappyHourAd {...mockProps} />);
+    const renderedText = component.find(select.test).text();
+    expect(renderedText).toEqual(expectedDescription);
+
+    global.Date = trueDate;
+    jest.useRealTimers();
+  });
+};
+
+describe('Component HappyHourAd with promoDescription text', () => {
+  checkTestAtTime('11:59:59', mockProps.promoDescription);
+  checkTestAtTime('12:00:00', mockProps.promoDescription);
+  checkTestAtTime('13:00:00', mockProps.promoDescription);
 });
