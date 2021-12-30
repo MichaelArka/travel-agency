@@ -3,7 +3,7 @@ import styles from './HappyHourAd.module.scss';
 import PropTypes from 'prop-types';
 import { formatTime } from '../../../utils/formatTime';
 
-class HappyHoursAd extends React.Component {
+class HappyHourAd extends React.Component {
   constructor(){
     super();
 
@@ -34,9 +34,9 @@ class HappyHoursAd extends React.Component {
   };
 };
 
-HappyHoursAd.propTypes = {
+HappyHourAd.propTypes = {
   title: PropTypes.string,
   promoDescription: PropTypes.string,
 };
 
-export default HappyHoursAd;
+export default HappyHourAd;

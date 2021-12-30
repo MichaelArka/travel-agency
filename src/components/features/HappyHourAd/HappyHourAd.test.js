@@ -8,8 +8,8 @@ const select = {
 };
 
 const mockProps = {
-  title: 'Lorem ipsum',
-  promoDescription: 'Lorem ipsum',
+  title: 'Happy Hour!',
+  promoDescription: 'promoDescription',
 };
 
 beforeAll(() => {

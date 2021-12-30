@@ -15,24 +15,31 @@ class DaysToSummer extends React.Component {
   
   //   return Math.round((nextNoon.getTime() - currentTime.getTime())/1000);
   // }
-  getCountdownTime(){
-    const currentTime = new Date("Jan 5, 2022 15:37:25");
-    const nextNoon = new Date(Date.UTC(currentTime.getUTCFullYear(), currentTime.getUTCMonth(), currentTime.getUTCDate(), 12, 0, 0, 0));
+//   getCountdownTime(){
+//   var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
   
-    if(currentTime.getUTCHours() >= 12){
-      nextNoon.setUTCDate(currentTime.getUTCDate()+1);
-    }
+//   var x = setInterval(function() {
+
+//   // Get today's date and time
+//   var now = new Date().getTime();
+
+//   // Find the distance between now and the count down date
+//   var distance = countDownDate - now;
+
+//   // Time calculations for days, hours, minutes and seconds
+//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   return (days);
   
-    return Math.round((nextNoon.getTime() - currentTime.getTime())/1000);
-  }
+//   }, 1000);
+// }
 
   render() {
-    let getCountdownTime = this.getCountdownTime();
+    // let getCountdownTime = this.getCountdownTime();
     let { promoDescription, title, summer} = this.props;
     return (
       <div className={styles.component} >
         <div className={styles.title}>{title}</div>
-        <div className={styles.days}>{getCountdownTime}</div>
+        <div className={styles.days}>{}</div>
       </div>
     );
   };
