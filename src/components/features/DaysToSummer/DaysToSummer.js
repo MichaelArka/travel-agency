@@ -16,32 +16,45 @@ class DaysToSummer extends React.Component {
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-    if (distance > 0) {
-      const daysLeft = 'Days left to summer.';
-      return days + ' ' + daysLeft;
-    } else  {
-      const oneDayLeft = 'One day left to summer.'
-      return oneDayLeft;
-    }
+    // if (distance > 1) {
+    //   const daysLeft = 'Days left';
+    //   return days + ' ' + daysLeft;
     // } else {
-    //   return null;
-    // };
-
-    // } else if (distance === 1) {
     //   const oneDayLeft = 'One day left'
     //   return oneDayLeft;
-  
-    // const daysLeft = 'Days left'
-    // Display the result
-    // /return days + ' ' + daysLeft;
+    // }
+
+    if (distance > 1) {
+      
+      return days;
+    } else {
+      const oneDayLeft = 'One day left'
+      return oneDayLeft;
+    }
+  };
+
+  showDays(){
+    // const countDownDate = new Date(Date.UTC(2022, 5, 21)).getTime();
+    const countDownDate = new Date(Date.UTC(2022, 0, 4)).getTime();
+
+    const now = new Date().getTime();
+    let distance = countDownDate - now;
+
+    if (distance > 0) {
+      return 'Days left';
+    } else if (distance === 0){
+      return 'One day left';
+    };
   };
 
   render() {
     let getCountdownTime = this.getCountdownTime();
+    let showDays = this.showDays();
     let { title } = this.props;
     return (
       <div className={styles.component} >
         <div className={styles.title}>{title}</div>
+        <div className={styles.subtitle}>{showDays}</div>
         <div className={styles.days}>{getCountdownTime}</div>
       </div>
     );
