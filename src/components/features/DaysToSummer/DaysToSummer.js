@@ -7,25 +7,25 @@ class DaysToSummer extends React.Component {
   getCountdownTime(){
   
     // var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+    // let countDownDate = new Date(Date.UTC(2021, 11, 32)).getTime();
+
     const countDownDate = new Date(Date.UTC(2022, 5, 21)).getTime();
-    // var countDownDate = new Date(Date.UTC(2021, 11, 20)).getTime();
 
-    // Get today's date and time
     const now = new Date().getTime();
-
-    // Find the distance between now and the count down date
     let distance = countDownDate - now;
 
-    // Time calculations for days, hours, minutes and seconds
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-    if (distance > 1) {
-      const daysLeft = 'Days left';
+    if (distance > 0) {
+      const daysLeft = 'Days left to summer.';
       return days + ' ' + daysLeft;
-     } else {
-      const oneDayLeft = 'One day left'
+    } else  {
+      const oneDayLeft = 'One day left to summer.'
       return oneDayLeft;
-    };
+    }
+    // } else {
+    //   return null;
+    // };
 
     // } else if (distance === 1) {
     //   const oneDayLeft = 'One day left'

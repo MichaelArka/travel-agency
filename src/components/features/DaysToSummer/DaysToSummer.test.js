@@ -30,35 +30,3 @@ describe('Component DaysToSummer', () => {
     expect(component.find(select.title).text()).toEqual(mockProps.title);
   });
 });
-
-const trueDate = Date;
-const mockDate = customDate => class extends Date {
-  constructor(...args) {
-    if(args.length){
-      super(...args);
-    } else {
-      super(customDate);
-    }
-    return this;
-  }
-  static now(){
-    return (new Date(customDate)).getTime();
-  }
-};
-
-const checkDescriptionAtTime = (time, expectedDescription) => {
-  it(`should show correct at ${time}`, () => {
-    global.Date = mockDate(`2019-05-14T${time}.135Z`);
-
-    const component = shallow(<DaysToSummer {...mockProps} />);
-    const renderedTime = component.find(select.days).text();
-    expect(renderedTime).toEqual(expectedDescription);
-
-    global.Date = trueDate;
-    jest.useRealTimers();
-  });
-};
-
-describe('Component DaysToSummer with mocked Date', () => {
-  checkDescriptionAtTime('13:00:00', 23 * 60 * 60 + '');
-});
