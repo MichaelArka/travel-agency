@@ -47,13 +47,13 @@ describe('Component DaysToSummer', () => {
   });
 });
 
-const checkDateAtTime = (time, expectedDate) => {
-  it(`should show correct at ${time}`, () => {
-    global.Date = mockDate(`2022-01-06T${time}.135Z`);
+const checkDaysAtDate = (date, expectedDays) => {
+  it(`should show correct at ${date}`, () => {
+    global.Date = mockDate(`${date}T11:59:59.555Z`);
 
     const component = shallow(<DaysToSummer {...mockProps} />);
     const renderedTime = component.find(select.days).text();
-    expect(renderedTime).toEqual(expectedDate);
+    expect(renderedTime).toEqual(expectedDays);
 
     global.Date = trueDate;
     jest.useRealTimers();
@@ -61,7 +61,8 @@ const checkDateAtTime = (time, expectedDate) => {
 };
 
 describe('Component DaysToSummer with mocked Date', () => {
-  checkDateAtTime('11:57:58', '165');
-  // checkDateAtTime('11:59:59', '1');
-  // checkDateAtTime('13:00:00', 23 * 60 * 60 + '');
+  checkDaysAtDate('2022-01-06', '165 Days left');
+  checkDaysAtDate('2022-07-23', '');
+  checkDaysAtDate('2022-06-19', '1 Day left');
+  checkDaysAtDate('2023-10-25', '');
 });
